@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Demonstration of hiding techniques in SEO including content hiding, cloaking, and redirection.">
+  <meta name="keywords" content="hidden text, cloaking, redirection, SEO spam">
+  <title>SEO Hiding Techniques Demo</title>
+  <!-- Meta refresh redirection after 10 seconds -->
+  <meta http-equiv="refresh" content="10; url=https://www.redirected-site.com">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+      color: #333;
+    }
+    header {
+      background-color: #d9534f;
+      color: #fff;
+      padding: 20px;
+    }
+    .content {
+      max-width: 800px;
+      margin: 20px auto;
+      text-align: left;
+    }
+    .box {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 5px;
+    }
+    .hidden-text {
+      color: #fff; /* Hidden text: same as background */
+    }
+    .hidden-link img {
+      width: 1px;
+      height: 1px;
+      opacity: 0; /* Invisible image for hidden hyperlink */
+    }
+    /* Cloaking sections: only one is shown based on user agent */
+    #userContent, #cloakingContent {
+      display: none;
+    }
+    /* Button styling */
+    button {
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+  <script>
+    // Basic cloaking simulation based on user agent string
+    function detectUserAgent() {
+      const ua = navigator.userAgent.toLowerCase();
+      if (ua.indexOf("bot") > -1) {
+        document.getElementById("cloakingContent").style.display = "block";
+      } else {
+        document.getElementById("userContent").style.display = "block";
+      }
+    }
+  </script>
+</head>
+<body onload="detectUserAgent()">
+  <header>
+    <h1>SEO Hiding Techniques Demo</h1>
+    <p>For Educational Purposes Only - Do Not Use in Production</p>
+  </header>
+
+  <div class="content">
+    <!-- Content Hiding Example -->
+    <div class="box">
+      <h2>Content Hiding</h2>
+      <p>This example demonstrates hidden content visible only to search engines.</p>
+      <p class="hidden-text">
+        Hidden Spam Content: free money, best SEO hacks, cheap flights, exclusive deals.
+      </p>
+      <p>Hidden link example:</p>
+      <a href="https://www.spam-example.com" class="hidden-link">
+        <img src="blank.gif" alt="hidden">
+      </a>
+    </div>
+
+    <!-- Cloaking Example -->
+    <div class="box" id="userContent">
+      <h2>Cloaking (User View)</h2>
+      <p>You are a regular visitor. You see this content.</p>
+    </div>
+    <div class="box" id="cloakingContent">
+      <h2>Cloaking (Search Engine Bot View)</h2>
+      <p>Welcome, Search Engine Bot! This content is optimized with hidden SEO keywords.</p>
+      <p>Boost your rankings with our secret techniques!</p>
+    </div>
+
+    <!-- Redirection Example -->
+    <div class="box">
+      <h2>Redirection</h2>
+      <p>You will be automatically redirected in 10 seconds via the meta refresh tag.</p>
+      <p>Alternatively, click the button below to redirect immediately:</p>
+      <button onclick="window.location.href='https://www.redirected-site.com'">Redirect Now</button>
+    </div>
+  </div>
+</body>
+</html>
